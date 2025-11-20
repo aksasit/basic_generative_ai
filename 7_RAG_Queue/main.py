@@ -1,5 +1,5 @@
 from dotenv import load_dotenv
-from .server import app
+from server import app
 import uvicorn
 
 load_dotenv()

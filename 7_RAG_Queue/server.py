@@ -2,8 +2,8 @@ from dotenv import load_dotenv
 load_dotenv()
 
 from fastapi import FastAPI, Query
-from .clients.rq_client import queue
-from .queues.worker import process_query
+from clients.rq_client import queue
+from queues.worker import process_query
 
 app = FastAPI()
 
@@ -11,7 +11,7 @@ app = FastAPI()
 def root():
     return {"status": "Server is up and runnning"}
 
-@app.post('/post')
+@app.post('/chat')
 def chat(
     query: str = Query(..., description="The chat query for the user")
 ):
