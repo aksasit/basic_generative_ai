@@ -9,6 +9,10 @@ load_dotenv()
 client = OpenAI()
 
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+NEO4J_USERNAME = os.getenv("NEO4J_USERNAME")
+NEO4J_PASSWORD = os.getenv("NEO4J_PASSWORD")
+NEO4J_ID = os.getenv("NEO4J_ID")
+
 
 
 config = {
@@ -30,9 +34,9 @@ config = {
     "graph_store":{
         "provider": "neo4j",
         "config": {
-            "url": "neo4j+s://fd10af2d.databases.neo4j.io",
-            "username": "neo4j",
-            "password": "Ri_hsFutNnQr0YyGeRzHroB_GlvYE-ATBVgMbu9Ohco"
+            "url": f"neo4j+s://{NEO4J_ID}.databases.neo4j.io",
+            "username": NEO4J_USERNAME,
+            "password": NEO4J_PASSWORD
         }
     },
     "vector_store": {
